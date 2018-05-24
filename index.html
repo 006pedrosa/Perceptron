@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <!--<link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">-->
+
+        <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/css/mdb.min.css" rel="stylesheet">
+
+    <body style="background-color: #00897b;">
+    
+    
+    <!--<div class="container">-->
+        <div class="row justify-content-center"> 
+            <div>
+                <h1>ALGORITMO DO PERCEPTRON</h1>
+            </div>
+        </div>
+        <div class="row justify-content-center"> 
+            <div>
+                <h2>Autor: Pedro Guimarães Rosa</h2>
+            </div>
+        </div>
+
+
+        <p id="demo"></p>
+
+    <div class="container" style="padding-top: 2%;">
+
+            <div class="row justify-content-center"> 
+                <div>
+                    <h3>Tutorial</h3>
+                </div>
+            </div>
+        <div class="form-row" style="padding-top: 5%">
+            <div>
+                <b>Entrada: a entrada deve seguir um modelo de matriz, sendo que a ultima coluna é reservada para o resultado esperado</b>
+            </div>
+        </div>
+        <div class="form-row" style="padding-top: 2%;">
+            <div>
+                <b>Exemplo: </b>
+            </div>
+        </div>
+        <div class="form-row" style="padding-top: 2%;">
+            <div>
+                <b>1 0 </b> <b style="color: red;">0</b>
+            </div>
+        </div>
+        <div class="form-row">
+            <div>
+                <b>1 1 </b> <b style="color: red;">1</b>
+            </div>
+        </div>
+        <div class="form-row">
+                <div>
+                    <b>0 0 </b> <b style="color: red;">0</b>
+                </div>
+        </div>
+        <div class="form-row" style="padding-top: 2%">
+            <div>
+                <b>Neste caso, temos que a matriz representa uma tabela verdade AND, onde o último digito em </b> <b style="color: red"> vermelho </b> <b> representa a solução da operação para aquelas entradas.</b>
+            </div>
+        </div>
+        <div class="form-row" style="padding-top: 1%">
+            <div>
+                    <b>Para os parametros de entrada temos: </b>
+            </div>
+        </div>
+        <div class="form-row" style="padding-top: 1%">
+            <div>
+                <b style="font-weight: bold;">Arestas:  </b> <b> número de arestas do perceptron.</b>
+            </div>
+        </div>
+        <div class="form-row" style="padding-top: 1%">
+            <div>
+                <b style="font-weight: bold;">Aprendizado:  </b> <b> taxa de aprendizado com que os pesos serão reajustados.</b>
+            </div>
+        </div>
+        <div class="form-row" style="padding-top: 1%">
+            <div>
+                <b style="font-weight: bold;">Bias:  </b> <b> valor do Bias.</b>
+            </div>
+        </div>
+        <div class="form-row" style="padding-top: 1%">
+            <div>
+                <b style="font-weight: bold;">Tempo:  </b> <b> número máximo de ciclos para executar o calculo.</b>
+            </div>
+        </div>
+
+
+        <div class="form-row" style="padding-top: 5%;">
+            <div class="form-group col-md-1"></div>
+            <div class="form-group col-md-1">
+                <label for="inputText1">Arestas:</label>
+                <input type="text" class="form-control" id="num-arestas" value="2">
+            </div>
+            <div class="form-group col-md-1"></div>
+            <div class="form-group col-md-1">
+                <label for="inputText1">Aprendizado:</label>
+                <input type="text" class="form-control" id="taxa-aprendizado" value="0.3">
+            </div>
+            <div class="form-group col-md-1"></div>
+            <div class="form-group col-md-1">
+                <label for="inputText2">Bias:</label>
+                <input type="text" class="form-control" id="bias" value="-1">
+            </div>
+            <div class="form-group col-md-1"></div>
+            <div class="form-group col-md-1">
+                <label for="inputText3">Tempo:</label>
+                <input type="text" class="form-control" id="ciclos" value="100">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="input-group col-md-12" id="input-text">
+                <div class="form-group col-md-12">
+                        <label for="exampleFormControlTextarea1" style="font-size: large;">Entrada: </label>
+                        <textarea class="form-control" id="text-area-content" rows="7" cols="15"></textarea>
+            </div>
+        </div>
+        <div class = "form-row">
+            <div class="input-group-prepend" style="padding-left: 5%;">
+                <button class="btn btn-elegant" onclick="perceptron()" type="button">Executar o Perceptron</button>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="container" style="padding-top: 5%; padding-bottom: 10%;">
+            <div class="form-row">
+                    <div class="input-group col-md-12" id="input-text-saida">
+                        <div class="form-group col-md-12">
+                                <label for="exampleFormControlTextarea1" style="font-size: large;">Saída: </label>
+                                <textarea class="form-control" style="background-color: black; color: green;" id="text-area-content-saida" rows="10" cols="15"></textarea>
+                    </div>
+                </div>
+    </div>
+
+        <!--</div>-->
+
+    <script src="perceptron.js">  
+    </script> 
+
+    </body>
+</html>
